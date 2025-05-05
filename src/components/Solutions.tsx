@@ -1,0 +1,86 @@
+
+import React from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Bike, Bus, Car, Recycle, Trash, Wind } from 'lucide-react';
+
+const solutionsData = [
+  {
+    id: 1,
+    title: "Reduce, Reuse, Recycle",
+    description: "Implementing the three Rs can decrease waste by up to 70%, reducing greenhouse gas emissions significantly.",
+    details: "The EPA estimates that recycling and composting prevented 193 million metric tons of carbon dioxide from being released in 2018, equivalent to removing 42 million cars from the road for a year. Reducing food waste alone could cut global emissions by 8-10% according to Project Drawdown.",
+    icon: Recycle
+  },
+  {
+    id: 2,
+    title: "Sustainable Transportation",
+    description: "Switching to eco-friendly transportation can reduce your carbon footprint by up to 30%.",
+    details: "A study by the European Cyclists' Federation found that cycling produces just 21g of CO2 per km compared to 271g for car travel. Electric vehicles produce about 50% less greenhouse gas emissions over their lifetime than average gas-powered vehicles, according to the Union of Concerned Scientists. Public transportation can reduce CO2 emissions by 45% per passenger mile compared to driving alone.",
+    icons: [Bike, Bus, Car]
+  },
+  {
+    id: 3,
+    title: "Waste Reduction",
+    description: "Reducing waste prevents pollution, conserves resources, and reduces greenhouse gas emissions.",
+    details: "The World Bank projects that global waste generation will increase by 70% by 2050 without urgent action. Single-use plastics account for 40% of the plastic produced every year, with items typically used for just minutes but persisting in the environment for hundreds of years. Composting food scraps and yard waste can reduce the volume of garbage sent to landfills by up to 30%, according to the EPA.",
+    icon: Trash
+  },
+  {
+    id: 4,
+    title: "Renewable Energy",
+    description: "Transitioning to renewable energy sources could reduce global CO2 emissions by 70% by 2050.",
+    details: "According to the International Renewable Energy Agency (IRENA), renewable energy and energy efficiency measures can achieve 90% of the carbon reductions needed by 2050. The cost of solar photovoltaic electricity has fallen 85% since 2010, making it competitive with or cheaper than fossil fuels in many markets. Wind energy prices have decreased by 49% over the same period.",
+    icon: Wind
+  }
+];
+
+const Solutions = () => {
+  return (
+    <section id="solutions" className="py-16 bg-babypink/10">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-sagegreen mb-4">
+          Solutions for a Sustainable Future
+        </h2>
+        <p className="text-lg text-center max-w-3xl mx-auto text-gray-600 mb-12">
+          There are numerous effective ways we can all contribute to protecting our planet and creating a sustainable future.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {solutionsData.map((solution) => (
+            <Card key={solution.id} className="border-l-4 border-l-sagegreen shadow-md hover:shadow-lg transition-shadow">
+              <CardHeader className="pb-2">
+                <div className="flex items-center">
+                  {solution.icon && (
+                    <div className="p-2 bg-sagegreen/20 rounded-full mr-4">
+                      <solution.icon className="h-6 w-6 text-sagegreen" />
+                    </div>
+                  )}
+                  {solution.icons && (
+                    <div className="flex space-x-2 mr-4">
+                      {solution.icons.map((Icon, idx) => (
+                        <div key={idx} className="p-2 bg-sagegreen/20 rounded-full">
+                          <Icon className="h-5 w-5 text-sagegreen" />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <div>
+                    <CardTitle className="text-xl text-sagegreen">{solution.title}</CardTitle>
+                    <CardDescription className="text-gray-500 mt-1">
+                      {solution.description}
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">{solution.details}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Solutions;

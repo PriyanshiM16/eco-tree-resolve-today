@@ -78,6 +78,12 @@ const About = () => {
             </a>
           </div>
         </div>
+        
+        <div className="mt-16 text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-babypink leading-tight">
+            <span className="text-sagegreen">PRIYANSHI</span> · <span className="text-babypink">SAIMA</span> · <span className="text-sagegreen">TENZIN</span>
+          </h2>
+        </div>
       </div>
     </section>
   );

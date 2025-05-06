@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CloudRain, CloudSun, Leaf, Building2, Temperature } from 'lucide-react';
+import { CloudRain, CloudSun, Leaf, Building2, ThermometerSun } from 'lucide-react';
 
 const challengesData = [
   {
@@ -37,7 +37,7 @@ const challengesData = [
     title: "Temperature Extremes on Infrastructure",
     description: "More frequent and intense heat waves contribute to thermal stress and cracking in concrete structures.",
     details: "Effects of Temperature Extremes: Studies investigate how more frequent and intense heat waves contribute to thermal stress and cracking in concrete structures like bridges and pavements. Scientists might monitor crack development in these structures during periods of extreme heat, using sensors to measure temperature and strain. Laboratory experiments can also simulate extreme temperature fluctuations to observe their impact on concrete cracking.",
-    icon: Temperature
+    icon: ThermometerSun
   }
 ];
 

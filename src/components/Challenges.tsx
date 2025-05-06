@@ -9,35 +9,40 @@ const challengesData = [
     title: "Global Warming",
     description: "Earth's average surface temperature has risen about 2.12°F (1.18°C) since the late 19th century, primarily due to increased carbon dioxide emissions.",
     details: "According to NASA, the rate of warming is unprecedented over decades to millennia. The Intergovernmental Panel on Climate Change (IPCC) has concluded that human influence is 'unequivocal' in driving these changes. The last decade was the warmest on record, with 2020 tying with 2016 as the hottest year ever recorded.",
-    icon: CloudSun
+    icon: CloudSun,
+    isUserProvided: false
   },
   {
     id: 2,
     title: "Climate Change",
     description: "Climate change is causing more frequent and severe weather events, sea level rise, and disruptions to ecosystems worldwide.",
     details: "Research from the World Meteorological Organization shows that extreme weather events have increased fivefold over the past 50 years. Sea levels are rising at about 3.3 mm per year globally. According to the IPCC's 2021 report, many changes due to past and future greenhouse gas emissions are irreversible for centuries to millennia, especially changes in the ocean, ice sheets, and global sea level.",
-    icon: CloudRain
+    icon: CloudRain,
+    isUserProvided: false
   },
   {
     id: 3,
     title: "Biodiversity Loss",
     description: "We're losing species at 1,000 times the natural rate. One million animal and plant species are now threatened with extinction.",
     details: "The WWF's Living Planet Report 2020 shows an average 68% decrease in population sizes of mammals, birds, amphibians, reptiles, and fish between 1970 and 2016. The IUCN Red List indicates that 41% of amphibians, 26% of mammals, and 13% of birds are threatened with extinction. Key drivers include habitat degradation, overexploitation, climate change, pollution, and invasive species.",
-    icon: Leaf
+    icon: Leaf,
+    isUserProvided: false
   },
   {
     id: 4,
     title: "Carbonation Cracking in Infrastructure",
     description: "Increased CO₂ levels accelerate concrete carbonation, causing critical infrastructure damage worldwide.",
     details: "Influence of Increased CO₂ on Carbonation Cracking: Researchers study how rising atmospheric CO₂ levels accelerate the carbonation process in concrete. They analyze cracks in older structures, particularly in urban environments with higher CO₂ concentrations, to determine if carbonation has reached the steel reinforcement, causing corrosion and subsequent cracking. This often involves taking concrete core samples and analyzing their chemical composition and the condition of the steel.",
-    icon: Building2
+    icon: Building2,
+    isUserProvided: true
   },
   {
     id: 5,
     title: "Temperature Extremes on Infrastructure",
     description: "More frequent and intense heat waves contribute to thermal stress and cracking in concrete structures.",
     details: "Effects of Temperature Extremes: Studies investigate how more frequent and intense heat waves contribute to thermal stress and cracking in concrete structures like bridges and pavements. Scientists might monitor crack development in these structures during periods of extreme heat, using sensors to measure temperature and strain. Laboratory experiments can also simulate extreme temperature fluctuations to observe their impact on concrete cracking.",
-    icon: ThermometerSun
+    icon: ThermometerSun,
+    isUserProvided: true
   }
 ];
 
@@ -61,13 +66,19 @@ const Challenges = () => {
                 </div>
                 <div>
                   <CardTitle className="text-xl text-sagegreen">{challenge.title}</CardTitle>
-                  <CardDescription className="text-gray-500 mt-1">
+                  <CardDescription 
+                    className={`text-gray-500 mt-1 ${challenge.isUserProvided ? 'underline decoration-sagegreen decoration-2' : 'underline decoration-babypink decoration-2'}`}
+                  >
                     {challenge.description}
                   </CardDescription>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">{challenge.details}</p>
+                <p 
+                  className={`text-sm text-gray-600 ${challenge.isUserProvided ? 'underline decoration-sagegreen decoration-2' : 'underline decoration-babypink decoration-2'}`}
+                >
+                  {challenge.details}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -75,7 +86,7 @@ const Challenges = () => {
         
         <div className="mt-12 p-6 bg-babypink/30 rounded-lg border border-babypink">
           <h3 className="text-xl font-bold text-sagegreen mb-3">Research Highlight</h3>
-          <p className="text-gray-700 italic">
+          <p className="text-gray-700 italic underline decoration-sagegreen decoration-2">
             "There are limited resources available to reduce litter which causes pollution and high risk factors. Our recent field studies in urban centers show that the combination of rising CO₂ levels and extreme temperature fluctuations is accelerating infrastructure degradation at rates 1.8 times faster than predicted by previous models."
           </p>
           <p className="text-right text-sm text-gray-500 mt-2">- Environmental Research Journal, 2024</p>

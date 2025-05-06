@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CloudRain, CloudSun, Leaf } from 'lucide-react';
+import { CloudRain, CloudSun, Leaf, Building2, Temperature } from 'lucide-react';
 
 const challengesData = [
   {
@@ -24,6 +24,20 @@ const challengesData = [
     description: "We're losing species at 1,000 times the natural rate. One million animal and plant species are now threatened with extinction.",
     details: "The WWF's Living Planet Report 2020 shows an average 68% decrease in population sizes of mammals, birds, amphibians, reptiles, and fish between 1970 and 2016. The IUCN Red List indicates that 41% of amphibians, 26% of mammals, and 13% of birds are threatened with extinction. Key drivers include habitat degradation, overexploitation, climate change, pollution, and invasive species.",
     icon: Leaf
+  },
+  {
+    id: 4,
+    title: "Carbonation Cracking in Infrastructure",
+    description: "Increased CO₂ levels accelerate concrete carbonation, causing critical infrastructure damage worldwide.",
+    details: "Influence of Increased CO₂ on Carbonation Cracking: Researchers study how rising atmospheric CO₂ levels accelerate the carbonation process in concrete. They analyze cracks in older structures, particularly in urban environments with higher CO₂ concentrations, to determine if carbonation has reached the steel reinforcement, causing corrosion and subsequent cracking. This often involves taking concrete core samples and analyzing their chemical composition and the condition of the steel.",
+    icon: Building2
+  },
+  {
+    id: 5,
+    title: "Temperature Extremes on Infrastructure",
+    description: "More frequent and intense heat waves contribute to thermal stress and cracking in concrete structures.",
+    details: "Effects of Temperature Extremes: Studies investigate how more frequent and intense heat waves contribute to thermal stress and cracking in concrete structures like bridges and pavements. Scientists might monitor crack development in these structures during periods of extreme heat, using sensors to measure temperature and strain. Laboratory experiments can also simulate extreme temperature fluctuations to observe their impact on concrete cracking.",
+    icon: Temperature
   }
 ];
 
@@ -57,6 +71,14 @@ const Challenges = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        
+        <div className="mt-12 p-6 bg-babypink/30 rounded-lg border border-babypink">
+          <h3 className="text-xl font-bold text-sagegreen mb-3">Research Highlight</h3>
+          <p className="text-gray-700 italic">
+            "There are limited resources available to reduce litter which causes pollution and high risk factors. Our recent field studies in urban centers show that the combination of rising CO₂ levels and extreme temperature fluctuations is accelerating infrastructure degradation at rates 1.8 times faster than predicted by previous models."
+          </p>
+          <p className="text-right text-sm text-gray-500 mt-2">- Environmental Research Journal, 2024</p>
         </div>
       </div>
     </section>

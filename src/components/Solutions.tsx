@@ -9,28 +9,32 @@ const solutionsData = [
     title: "Reduce, Reuse, Recycle",
     description: "Implementing the three Rs can decrease waste by up to 70%, reducing greenhouse gas emissions significantly.",
     details: "The EPA estimates that recycling and composting prevented 193 million metric tons of carbon dioxide from being released in 2018, equivalent to removing 42 million cars from the road for a year. Reducing food waste alone could cut global emissions by 8-10% according to Project Drawdown.",
-    icon: Recycle
+    icon: Recycle,
+    source: "mixed" // Both human and AI content
   },
   {
     id: 2,
     title: "Sustainable Transportation",
     description: "Switching to eco-friendly transportation can reduce your carbon footprint by up to 30%.",
     details: "A study by the European Cyclists' Federation found that cycling produces just 21g of CO2 per km compared to 271g for car travel. Electric vehicles produce about 50% less greenhouse gas emissions over their lifetime than average gas-powered vehicles, according to the Union of Concerned Scientists. Public transportation can reduce CO2 emissions by 45% per passenger mile compared to driving alone.",
-    icons: [Bike, Bus, Car]
+    icons: [Bike, Bus, Car],
+    source: "ai" // AI generated content
   },
   {
     id: 3,
     title: "Waste Reduction",
     description: "Reducing waste prevents pollution, conserves resources, and reduces greenhouse gas emissions.",
     details: "The World Bank projects that global waste generation will increase by 70% by 2050 without urgent action. Single-use plastics account for 40% of the plastic produced every year, with items typically used for just minutes but persisting in the environment for hundreds of years. Composting food scraps and yard waste can reduce the volume of garbage sent to landfills by up to 30%, according to the EPA.",
-    icon: Trash
+    icon: Trash,
+    source: "human" // Human provided content
   },
   {
     id: 4,
     title: "Renewable Energy",
     description: "Transitioning to renewable energy sources could reduce global CO2 emissions by 70% by 2050.",
     details: "According to the International Renewable Energy Agency (IRENA), renewable energy and energy efficiency measures can achieve 90% of the carbon reductions needed by 2050. The cost of solar photovoltaic electricity has fallen 85% since 2010, making it competitive with or cheaper than fossil fuels in many markets. Wind energy prices have decreased by 49% over the same period.",
-    icon: Wind
+    icon: Wind,
+    source: "ai" // AI generated content
   }
 ];
 
@@ -47,7 +51,31 @@ const Solutions = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {solutionsData.map((solution) => (
-            <Card key={solution.id} className="border-l-4 border-l-sagegreen shadow-md hover:shadow-lg transition-shadow">
+            <Card key={solution.id} className="border-l-4 border-l-sagegreen shadow-md hover:shadow-lg transition-shadow relative">
+              {/* Source indicator */}
+              <div className="absolute top-2 right-2 flex space-x-1">
+                {solution.source === "human" && (
+                  <div className="h-6 w-6 rounded-full bg-sagegreen/20 text-sagegreen flex items-center justify-center text-xs font-semibold">
+                    H
+                  </div>
+                )}
+                {solution.source === "ai" && (
+                  <div className="h-6 w-6 rounded-full bg-babypink/30 text-pink-700 flex items-center justify-center text-xs font-semibold">
+                    A
+                  </div>
+                )}
+                {solution.source === "mixed" && (
+                  <>
+                    <div className="h-6 w-6 rounded-full bg-sagegreen/20 text-sagegreen flex items-center justify-center text-xs font-semibold">
+                      H
+                    </div>
+                    <div className="h-6 w-6 rounded-full bg-babypink/30 text-pink-700 flex items-center justify-center text-xs font-semibold">
+                      A
+                    </div>
+                  </>
+                )}
+              </div>
+              
               <CardHeader className="pb-2">
                 <div className="flex items-center">
                   {solution.icon && (
@@ -65,15 +93,40 @@ const Solutions = () => {
                     </div>
                   )}
                   <div>
-                    <CardTitle className="text-xl text-sagegreen">{solution.title}</CardTitle>
+                    <CardTitle className="text-xl text-sagegreen">
+                      {solution.source === "human" ? (
+                        <span className="border-b-2 border-sagegreen">{solution.title}</span>
+                      ) : solution.source === "ai" ? (
+                        <span className="border-b-2 border-babypink">{solution.title}</span>
+                      ) : (
+                        solution.title
+                      )}
+                    </CardTitle>
                     <CardDescription className="text-gray-500 mt-1">
-                      {solution.description}
+                      {solution.source === "human" ? (
+                        <span className="border-b-2 border-sagegreen">{solution.description}</span>
+                      ) : solution.source === "ai" ? (
+                        <span className="border-b-2 border-babypink">{solution.description}</span>
+                      ) : (
+                        <span>{solution.description}</span>
+                      )}
                     </CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">{solution.details}</p>
+                <p className="text-sm text-gray-600">
+                  {solution.source === "human" ? (
+                    <span className="border-b-2 border-sagegreen">{solution.details}</span>
+                  ) : solution.source === "ai" ? (
+                    <span className="border-b-2 border-babypink">{solution.details}</span>
+                  ) : (
+                    <span>
+                      <span className="border-b-2 border-sagegreen">The EPA estimates that recycling and composting prevented 193 million metric tons of carbon dioxide from being released in 2018,</span>
+                      <span className="border-b-2 border-babypink"> equivalent to removing 42 million cars from the road for a year. Reducing food waste alone could cut global emissions by 8-10% according to Project Drawdown.</span>
+                    </span>
+                  )}
+                </p>
               </CardContent>
             </Card>
           ))}

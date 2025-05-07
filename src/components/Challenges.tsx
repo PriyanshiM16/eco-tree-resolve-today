@@ -11,7 +11,7 @@ const challengesData = [
     details: "According to NASA, the rate of warming is unprecedented over decades to millennia. The Intergovernmental Panel on Climate Change (IPCC) has concluded that human influence is 'unequivocal' in driving these changes. The last decade was the warmest on record, with 2020 tying with 2016 as the hottest year ever recorded.",
     icon: CloudSun,
     isUserProvided: false,
-    source: "A" // AI-generated
+    source: "mixed" // Changed from "A" to "mixed"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const challengesData = [
     details: "Research from the World Meteorological Organization shows that extreme weather events have increased fivefold over the past 50 years. Sea levels are rising at about 3.3 mm per year globally. According to the IPCC's 2021 report, many changes due to past and future greenhouse gas emissions are irreversible for centuries to millennia, especially changes in the ocean, ice sheets, and global sea level.",
     icon: CloudRain,
     isUserProvided: false,
-    source: "A" // AI-generated
+    source: "mixed" // Changed from "A" to "mixed"
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const challengesData = [
     details: "The WWF's Living Planet Report 2020 shows an average 68% decrease in population sizes of mammals, birds, amphibians, reptiles, and fish between 1970 and 2016. The IUCN Red List indicates that 41% of amphibians, 26% of mammals, and 13% of birds are threatened with extinction. Key drivers include habitat degradation, overexploitation, climate change, pollution, and invasive species.",
     icon: Leaf,
     isUserProvided: false,
-    source: "A" // AI-generated
+    source: "mixed" // Changed from "A" to "mixed"
   },
   {
     id: 4,
@@ -115,14 +115,27 @@ const Challenges = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {challengesData.map((challenge) => (
             <Card key={challenge.id} className="border-t-4 border-t-sagegreen shadow-md hover:shadow-lg transition-shadow relative">
-              <div className="absolute top-2 right-2 z-10">
-                <span className={`inline-block px-2 py-1 text-xs font-bold rounded-full ${
-                  challenge.source === 'A' 
-                    ? 'bg-babypink text-white' 
-                    : 'bg-sagegreen text-white'
-                }`}>
-                  {challenge.source}
-                </span>
+              <div className="absolute top-2 right-2 z-10 flex space-x-1">
+                {challenge.source === 'A' && (
+                  <span className="inline-block px-2 py-1 text-xs font-bold rounded-full bg-babypink text-white">
+                    A
+                  </span>
+                )}
+                {challenge.source === 'H' && (
+                  <span className="inline-block px-2 py-1 text-xs font-bold rounded-full bg-sagegreen text-white">
+                    H
+                  </span>
+                )}
+                {challenge.source === 'mixed' && (
+                  <>
+                    <span className="inline-block px-2 py-1 text-xs font-bold rounded-full bg-babypink text-white">
+                      A
+                    </span>
+                    <span className="inline-block px-2 py-1 text-xs font-bold rounded-full bg-sagegreen text-white">
+                      H
+                    </span>
+                  </>
+                )}
               </div>
               <CardHeader className="flex flex-row items-start space-y-0 pb-2">
                 <div className="p-2 bg-babypink/20 rounded-full mr-4">

@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Challenges from '@/components/Challenges';
 import Solutions from '@/components/Solutions';
+import PhotoGallery from '@/components/PhotoGallery';
 import Discovery from '@/components/Discovery';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
@@ -15,6 +16,7 @@ const Index = () => {
       <Hero />
       <Challenges />
       <Solutions />
+      <PhotoGallery />
       <Discovery />
       <About />
       <Footer />

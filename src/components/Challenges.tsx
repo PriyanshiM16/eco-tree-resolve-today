@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CloudRain, CloudSun, Leaf, Building2, ThermometerSun, TestTube } from 'lucide-react';
@@ -131,17 +130,13 @@ const Challenges = () => {
                 </div>
                 <div>
                   <CardTitle className="text-xl text-sagegreen">{challenge.title}</CardTitle>
-                  <CardDescription 
-                    className={`text-gray-500 mt-1 ${challenge.isUserProvided ? 'underline decoration-sagegreen decoration-2' : 'underline decoration-babypink decoration-2'}`}
-                  >
+                  <CardDescription className="text-gray-500 mt-1">
                     {challenge.description}
                   </CardDescription>
                 </div>
               </CardHeader>
               <CardContent>
-                <p 
-                  className={`text-sm text-gray-600 ${challenge.isUserProvided ? 'underline decoration-sagegreen decoration-2' : 'underline decoration-babypink decoration-2'}`}
-                >
+                <p className="text-sm text-gray-600">
                   {challenge.details}
                 </p>
               </CardContent>
@@ -156,7 +151,7 @@ const Challenges = () => {
             </span>
           </div>
           <h3 className="text-xl font-bold text-sagegreen mb-3">Research Highlight</h3>
-          <p className="text-gray-700 italic underline decoration-sagegreen decoration-2">
+          <p className="text-gray-700 italic">
             "There are limited resources available to reduce litter which causes pollution and high risk factors. Our recent field studies in urban centers show that the combination of rising CO₂ levels and extreme temperature fluctuations is accelerating infrastructure degradation at rates 1.8 times faster than predicted by previous models."
           </p>
           <p className="text-right text-sm text-gray-500 mt-2">- Environmental Research Journal, 2024</p>
@@ -171,28 +166,28 @@ const Challenges = () => {
           <div className="flex flex-col md:flex-row gap-6">
             <div className="md:w-1/2">
               <p className="text-gray-700 mb-4">
-                <span className="underline decoration-sagegreen decoration-2">Scientists would use that crack from the 1960-70s and that was used to see how global climate change shifted the world causing that crack.</span> 
-                <span className="underline decoration-babypink decoration-2"> The experiment involved monitoring the progression of a documented crack in infrastructure concrete that had been continuously measured since the late 1960s. Researchers tracked changes in width, depth, chemical composition, and structural integrity.</span>
+                Scientists would use that crack from the 1960-70s and that was used to see how global climate change shifted the world causing that crack. 
+                The experiment involved monitoring the progression of a documented crack in infrastructure concrete that had been continuously measured since the late 1960s. Researchers tracked changes in width, depth, chemical composition, and structural integrity.
               </p>
               <p className="text-gray-700">
-                <span className="underline decoration-sagegreen decoration-2">The government fixed up the crack</span> 
-                <span className="underline decoration-babypink decoration-2"> using advanced polymer-based sealants developed specifically to withstand the increasing temperature fluctuations predicted by climate models. The restoration process was documented and has become a case study in climate-adaptive infrastructure maintenance.</span>
+                The government fixed up the crack 
+                using advanced polymer-based sealants developed specifically to withstand the increasing temperature fluctuations predicted by climate models. The restoration process was documented and has become a case study in climate-adaptive infrastructure maintenance.
               </p>
             </div>
             <div className="md:w-1/2">
               <h4 className="font-bold text-sagegreen mb-2">Key Findings</h4>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <span className="underline decoration-babypink decoration-2">Crack propagation accelerated by 37% in the last two decades compared to the first 30 years</span>
+                  Crack propagation accelerated by 37% in the last two decades compared to the first 30 years
                 </li>
                 <li>
-                  <span className="underline decoration-babypink decoration-2">Chemical analysis revealed increased carbonation depth correlating with rising CO₂ levels</span>
+                  Chemical analysis revealed increased carbonation depth correlating with rising CO₂ levels
                 </li>
                 <li>
-                  <span className="underline decoration-sagegreen decoration-2">The crack was used as evidence for climate change impact on infrastructure</span>
+                  The crack was used as evidence for climate change impact on infrastructure
                 </li>
                 <li>
-                  <span className="underline decoration-babypink decoration-2">Modern remediation techniques were 65% more effective than those available in the original time period</span>
+                  Modern remediation techniques were 65% more effective than those available in the original time period
                 </li>
               </ul>
               <p className="text-right text-sm text-gray-500 mt-4">- Journal of Infrastructure Resilience, 2023</p>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bike, Bus, Car, Recycle, Trash, Wind, CloudRain } from 'lucide-react';
@@ -142,38 +141,17 @@ const Solutions = () => {
                   )}
                   <div>
                     <CardTitle className="text-xl text-sagegreen">
-                      {solution.source === "human" ? (
-                        <span className="border-b-2 border-sagegreen">{solution.title}</span>
-                      ) : solution.source === "ai" ? (
-                        <span className="border-b-2 border-babypink">{solution.title}</span>
-                      ) : (
-                        solution.title
-                      )}
+                      {solution.title}
                     </CardTitle>
                     <CardDescription className="text-gray-500 mt-1">
-                      {solution.source === "human" ? (
-                        <span className="border-b-2 border-sagegreen">{solution.description}</span>
-                      ) : solution.source === "ai" ? (
-                        <span className="border-b-2 border-babypink">{solution.description}</span>
-                      ) : (
-                        <span>{solution.description}</span>
-                      )}
+                      {solution.description}
                     </CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600">
-                  {solution.source === "human" ? (
-                    <span className="border-b-2 border-sagegreen">{solution.details}</span>
-                  ) : solution.source === "ai" ? (
-                    <span className="border-b-2 border-babypink">{solution.details}</span>
-                  ) : (
-                    <span>
-                      <span className="border-b-2 border-sagegreen">The EPA estimates that recycling and composting prevented 193 million metric tons of carbon dioxide from being released in 2018,</span>
-                      <span className="border-b-2 border-babypink"> equivalent to removing 42 million cars from the road for a year. Reducing food waste alone could cut global emissions by 8-10% according to Project Drawdown.</span>
-                    </span>
-                  )}
+                  {solution.details}
                 </p>
               </CardContent>
             </Card>

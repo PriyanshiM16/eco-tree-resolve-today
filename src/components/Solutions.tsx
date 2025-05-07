@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bike, Bus, Car, Recycle, Trash, Wind } from 'lucide-react';
+import { Bike, Bus, Car, Recycle, Trash, Wind, CloudRain } from 'lucide-react';
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const solutionsData = [
   {
@@ -38,6 +39,33 @@ const solutionsData = [
   }
 ];
 
+const solutionPhotos = [
+  {
+    id: 1,
+    src: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86",
+    alt: "Low angle view of trees",
+    caption: "Reforestation efforts help combat climate change"
+  },
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
+    alt: "Sustainable architecture",
+    caption: "Green building design reduces environmental impact"
+  },
+  {
+    id: 3,
+    src: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
+    alt: "Sunlight through trees",
+    caption: "Protecting forests preserves biodiversity"
+  },
+  {
+    id: 4,
+    src: "https://images.unsplash.com/photo-1517022812141-23620dba5c23",
+    alt: "Sustainable agriculture",
+    caption: "Sustainable farming practices protect soil health"
+  }
+];
+
 const Solutions = () => {
   return (
     <section id="solutions" className="py-16 bg-babypink/10">
@@ -48,6 +76,26 @@ const Solutions = () => {
         <p className="text-lg text-center max-w-3xl mx-auto text-gray-600 mb-12">
           There are numerous effective ways we can all contribute to protecting our planet and creating a sustainable future.
         </p>
+        
+        {/* Photo Gallery Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {solutionPhotos.map((photo) => (
+            <div key={photo.id} className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="relative">
+                <AspectRatio ratio={1}>
+                  <img 
+                    src={photo.src} 
+                    alt={photo.alt}
+                    className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                  />
+                </AspectRatio>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                  <p className="text-white text-xs md:text-sm font-medium">{photo.caption}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {solutionsData.map((solution) => (

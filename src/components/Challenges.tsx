@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CloudRain, CloudSun, Leaf, Building2, ThermometerSun, TestTube } from 'lucide-react';
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const challengesData = [
   {
@@ -59,6 +61,27 @@ const challengesData = [
   }
 ];
 
+const challengePhotos = [
+  {
+    id: 1,
+    src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+    alt: "Landscape with mountains and sunlight",
+    caption: "Climate change affects ecosystems worldwide"
+  },
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3",
+    alt: "Green grass and rocky mountain",
+    caption: "Natural habitats face unprecedented threats"
+  },
+  {
+    id: 3,
+    src: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
+    alt: "River between mountains",
+    caption: "Water sources are increasingly vulnerable"
+  }
+];
+
 const Challenges = () => {
   return (
     <section id="challenges" className="py-16 bg-white">
@@ -69,6 +92,26 @@ const Challenges = () => {
         <p className="text-lg text-center max-w-3xl mx-auto text-gray-600 mb-12">
           Our planet is experiencing unprecedented environmental crises that require immediate attention and action.
         </p>
+        
+        {/* Photo Gallery Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {challengePhotos.map((photo) => (
+            <div key={photo.id} className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="relative">
+                <AspectRatio ratio={16/9}>
+                  <img 
+                    src={photo.src} 
+                    alt={photo.alt}
+                    className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                  />
+                </AspectRatio>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p className="text-white text-sm font-medium">{photo.caption}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {challengesData.map((challenge) => (
